@@ -57,6 +57,19 @@ img {
   display: block;
 }
 
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
 /**
   |============================
   | Header
@@ -230,7 +243,7 @@ img {
 
 .hero-btn:hover,
 .hero-btn:focus {
-  color: var(--btn-active-cl);
+  background: var(--btn-active-cl);
 }
 
 /**
@@ -595,6 +608,87 @@ img {
   fill: currentColor;
 }
 
+.footer-form {
+  margin-left: 93px;
+}
+.footer-container-form {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-form-label {
+  display: block;
+  font-weight: 700;
+  color: var(--light-txt-cl);
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer-form-input {
+  display: block;
+  height: 50px;
+  width: 358px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+}
+
+.footer-form-input:placeholder-shown {
+  padding: 16px 15px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-btn-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(30 / 16);
+  letter-spacing: 0.06em;
+}
+
+.footer-form-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  padding: 10px 28px;
+  gap: 10px;
+
+  margin: 0 auto;
+  border: none;
+
+  border-radius: 4px;
+  background-color: var(--accent-bgr-cl);
+  color: var(--light-txt-cl);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: var(--animation);
+}
+
+.footer-form-btn:hover,
+.footer-form-btn:focus {
+  background: var(--btn-active-cl);
+}
+
+.footer-form-icon {
+  fill: var(--light-txt-cl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /**
   |============================
   | Portfolio
@@ -755,6 +849,7 @@ img {
 }
 
 .modal {
+  padding: 40px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -783,19 +878,27 @@ img {
 
   padding: 0;
   border-radius: 50%;
-  background-color: var(--light-txt-cl);
+  background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
 
   cursor: pointer;
+  fill: currentColor;
+  transition: color var(--animation);
 }
 
-/* Register form */
+.modal-btn:hover,
+.modal-btn:focus {
+  color: var(--accent-bgr-cl);
+}
+
+/**
+  |============================
+  | Register form
+  |============================
+*/
 
 .register-form-title {
-  padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
 
   display: block;
   text-align: center;
@@ -807,34 +910,18 @@ img {
 }
 
 .register-form-group {
-  padding-left: 40px;
-  padding-right: 40px;
+  margin-bottom: 20px;
 }
 
-.label {
+.register-form-label {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: block;
+
   margin-bottom: 10px;
 }
 
-.label:focus-within > .form-icon {
-  color: var(--accent-bgr-cl);
-}
-
-.label:focus-within > .form-input {
-  color: var(--accent-bgr-cl);
-}
-
-.form-icon {
-  fill: currentColor;
-  position: absolute;
-  top: 38px;
-  left: 12px;
-  transform: translateY(-50%);
-}
-
-.label-title {
+.register-label-title {
+  display: block;
   margin-bottom: 4px;
   font-size: 12px;
   line-height: calc(14 / 12);
@@ -843,39 +930,100 @@ img {
   color: var(--secondary-txt-cl);
 }
 
-.label-sub-title {
-  padding-bottom: 20px;
-  font-size: 12px;
-  line-height: calc(14 / 12);
-  letter-spacing: 0.01em;
-
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
-  color: rgba(117, 117, 117, 0.5);
-  resize: none;
-}
-
-.form-input {
+.register-form-input {
+  width: 100%;
   height: 40px;
+  padding-left: 36px;
+  padding-right: 36px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   cursor: pointer;
+  outline: transparent;
+  transition: border-color var(--animation);
 }
 
-.label-terms {
-  padding-left: 52px;
-  padding-right: 52px;
+.register-form-input:focus,
+.register-form-input:hover {
+  border-color: var(--accent-bgr-cl);
 }
 
-.terms-title {
-  font-size: 14px;
-  line-height: calc(24 / 14);
-  letter-spacing: 0.03em;
-  color: var(--secondary-txt-cl);
+.register-form-icon {
+  fill: currentColor;
+  position: absolute;
+  top: 38px;
+  left: 12px;
+  transform: translateY(-50%);
+  transition: fill var(--animation);
+}
+
+.register-form-input:focus + .register-form-icon {
+  fill: var(--accent-bgr-cl);
+}
+
+.form-field-desc {
+  width: 100%;
+  height: 122px;
+  padding: 16px 12px;
+
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  outline: transparent;
+  resize: none;
+  transition: border-color var(--animation);
+}
+
+.form-field-desc:hover,
+.form-field-desc:focus {
+  border-color: var(--accent-bgr-cl);
+}
+
+.register-form-terms {
+  gap: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 30px;
+}
+
+.icon-checked {
+  opacity: 0;
+  transition: opacity var(--animation);
+}
+
+.register-terms-input:checked + .register-terms-icon .icon-checked {
+  opacity: 1;
+}
+
+.icon-unchecked {
+  opacity: 1;
+  transition: opacity var(--animation);
+}
+.register-terms-input:checked + .register-terms-icon .icon-unchecked {
+  opacity: 0;
 }
 
 .terms-link {
   color: var(--accent-bgr-cl);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(24 / 14);
+  letter-spacing: 0.03em;
+}
+
+.terms-title {
+  user-select: none;
+  color: var(--secondary-txt-cl);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(24 / 14);
+  letter-spacing: 0.03em;
 }
 
 .register-btn {
@@ -883,8 +1031,6 @@ img {
   padding: 10px 52px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 40px;
   border: none;
 
   font-weight: 700;
@@ -898,6 +1044,11 @@ img {
   background-color: var(--accent-bgr-cl);
   color: var(--light-txt-cl);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  font-size: inherit;
   cursor: pointer;
+  transition: var(--animation);
+}
+
+.register-btn:hover,
+.register-btn:focus {
+  background: var(--btn-active-cl);
 }
