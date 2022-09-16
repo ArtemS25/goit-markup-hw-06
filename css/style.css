@@ -939,7 +939,7 @@ img {
   border-radius: 4px;
   cursor: pointer;
   outline: transparent;
-  transition: border-color var(--animation);
+  transition: border-color var(--animation) fill var(--animation);
 }
 
 .register-form-input:focus,
@@ -954,6 +954,10 @@ img {
   left: 12px;
   transform: translateY(-50%);
   transition: fill var(--animation);
+}
+
+.register-form-input:hover + .register-form-icon {
+  fill: var(--accent-bgr-cl);
 }
 
 .register-form-input:focus + .register-form-icon {
